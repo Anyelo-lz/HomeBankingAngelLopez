@@ -1,18 +1,21 @@
 package com.mindhub.homebanking.models;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String fristName, lastName, email;
 
-    public Client(String fristName, String lastName, String email) {
-        this.fristName = fristName;
+    private String name, lastName, email;
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    private Set<Account> accounts = new HashSet<>();
+
+    public Client(String name, String lastName, String email) {
+        this.name = name;
         this.lastName = lastName;
         this.email = email;
     }
@@ -24,12 +27,12 @@ public class Client {
         return id;
     }
 
-    public String getFristName() {
-        return fristName;
+    public String getName() {
+        return name;
     }
 
-    public void setFristName(String fristName) {
-        this.fristName = fristName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLastName() {
@@ -48,13 +51,22 @@ public class Client {
         this.email = email;
     }
 
+    public Set<Account> getAccounts() {
+        return accounts;
+    }
+    public void addAccount(Account account){
+        account.setClient(this);
+        accounts.add(account);
+    }
+
     @Override
     public String toString() {
         return "Client{" +
                 "id=" + id +
-                ", fristName='" + fristName + '\'' +
+                ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
+                ", accounts=" + accounts +
                 '}';
     }
 }
