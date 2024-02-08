@@ -15,8 +15,9 @@ public class Account {
     private LocalDate creationDate;
     private Double balance;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "client_id")
+    @JoinColumn(name ="client")
     private Client client;
+
     @OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
     private Set<Transaction> transactions = new HashSet<>();
 
@@ -68,10 +69,10 @@ public class Account {
     public Set<Transaction> getTransactions() {
         return transactions;
     }
+
     public void addTransaction(Transaction transaction){
         transaction.setAccount(this);
         transactions.add(transaction);
-
     }
 
     @Override
@@ -83,4 +84,5 @@ public class Account {
                 ", balance=" + balance +
                 '}';
     }
+
 }

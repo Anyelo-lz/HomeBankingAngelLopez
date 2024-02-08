@@ -13,7 +13,7 @@ public class Transaction {
     private LocalDateTime date;
     private Double amount;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "account_id")
+    @JoinColumn(name = "account")
     private Account account;
 
     public Transaction(TransactionType type, String detail, LocalDateTime transactionTime, Double amount) {

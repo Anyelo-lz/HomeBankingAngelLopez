@@ -1,4 +1,4 @@
-package com.mindhub.homebanking.Dto;
+package com.mindhub.homebanking.Dtos;
 
 import com.mindhub.homebanking.models.Transaction;
 import com.mindhub.homebanking.models.TransactionType;

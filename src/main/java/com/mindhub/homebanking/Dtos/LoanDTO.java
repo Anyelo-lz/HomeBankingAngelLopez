@@ -1,4 +1,4 @@
-package com.mindhub.homebanking.Dto;
+package com.mindhub.homebanking.Dtos;
 
 import com.mindhub.homebanking.models.Loan;
 
@@ -22,33 +22,15 @@ public class LoanDTO {
         return id;
     }
 
-
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Double getMaxAmount() {
         return maxAmount;
     }
 
-    public void setMaxAmount(Double maxAmount) {
-        this.maxAmount = maxAmount;
-    }
-
     public List<Integer> getPayments() {
         return payments;
-    }
-
-    public void setPayments(List<Integer> payments) {
-        this.payments = payments;
     }
 }

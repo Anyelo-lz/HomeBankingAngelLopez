@@ -1,4 +1,4 @@
-package com.mindhub.homebanking.Dto;
+package com.mindhub.homebanking.Dtos;
 
 import com.mindhub.homebanking.models.ClientLoan;
 import jakarta.persistence.Entity;
@@ -6,10 +6,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity
+
 public class ClientLoanDTO {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     private String name;
     private Double amount;

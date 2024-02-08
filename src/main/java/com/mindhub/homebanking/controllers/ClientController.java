@@ -1,5 +1,5 @@
 package com.mindhub.homebanking.controllers;
-import com.mindhub.homebanking.Dto.ClientDTO;
+import com.mindhub.homebanking.Dtos.ClientDTO;
 import java.util.stream.Collectors;
 import com.mindhub.homebanking.models.Client;
 import com.mindhub.homebanking.repositories.ClientRepository;
