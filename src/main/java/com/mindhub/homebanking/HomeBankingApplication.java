@@ -30,39 +30,43 @@ public class HomeBankingApplication {
 			Client melba = new Client("Melba", "Morel", "melba@mindhub.com");
 			clientRepository.save(melba);
 
-			Client angel =new Client("Angel","Lopez","angelwilliamleonel@gmail.com");
+			Client git angel =new Client("Angel","Lopez","angelwilliamleonel@gmail.com");
             clientRepository.save(angel);
 
 
 			Account accountMelba = new Account("VIN001", LocalDate.now(), 5000.00);
-			accountRepository.save(accountMelba);
 			melba.addAccount(accountMelba);
+			accountRepository.save(accountMelba);
+
 
 			Account accountMelba2 = new Account("VIN002", LocalDate.now().plusDays(1), 7500.00);
-			accountRepository.save(accountMelba2);
 			melba.addAccount(accountMelba2);
+			accountRepository.save(accountMelba2);
 
-			Account accountAngel = new Account("VIN003", LocalDate.now().plusDays(1), 6000.00);
-			accountRepository.save(accountAngel);
+
+			Account accountAngel = new Account("VIN003", LocalDate.now(), 6000.00);
 			angel.addAccount(accountAngel);
+			accountRepository.save(accountAngel);
+
 
 			Account accountAngel2 = new Account("VIN004",LocalDate.now().plusDays(2),7000.00);
-            accountRepository.save(accountAngel2);
 			angel.addAccount(accountAngel2);
+			accountRepository.save(accountAngel2);
 
 
 
 			Transaction buyAmazon = new Transaction(DEBIT, "He made a purchase at the Amazon Store for an Automatic Washing Machine.", LocalDateTime.now(), -300.00);
-			transactionRepository.save(buyAmazon);
 			accountMelba.addTransaction(buyAmazon);
+			transactionRepository.save(buyAmazon);
+
 
 			Transaction transfer = new Transaction(CREDIT, "Transfer of Julio Perez", LocalDateTime.now().plusDays(2), 500.00);
-			transactionRepository.save(transfer);
 			accountMelba.addTransaction(transfer);
+			transactionRepository.save(transfer);
 
 			Transaction otherBuyAmazon = new Transaction(DEBIT, "Buy Notebook HP", LocalDateTime.now().plusDays(4), -3000.0);
-			transactionRepository.save(otherBuyAmazon);
 			accountMelba2.addTransaction(otherBuyAmazon);
+			transactionRepository.save(otherBuyAmazon);
 
 
 
@@ -78,25 +82,25 @@ public class HomeBankingApplication {
 
 
 			ClientLoan melbaMortgage = new ClientLoan(melba, mortgage, 400000.00, 60);
-			clientRepository.save(melba);
 			melba.addClientLoan(melbaMortgage);
+			clientRepository.save(melba);
 
 			ClientLoan melbaPersonal = new ClientLoan(melba, personal, 50000.00, 12);
-			clientRepository.save(melba);
 			melba.addClientLoan(melbaPersonal);
+			clientRepository.save(melba);
 
 			ClientLoan melbaAutomotive =new ClientLoan(melba,automotive,300000.00,36);
-            clientRepository.save(melba);
 			angel.addClientLoan(melbaAutomotive);
+			clientRepository.save(melba);
 
 
 			ClientLoan angelPersonal=new ClientLoan(angel,personal,100000.00,24);
-			clientRepository.save(angel);
 			angel.addClientLoan(angelPersonal);
+			clientRepository.save(angel);
 
 			ClientLoan angelAutomotive =new ClientLoan(angel,automotive,200000.00,36);
-			clientRepository.save(angel);
 			angel.addClientLoan(angelAutomotive);
+			clientRepository.save(angel);
 
 			clientLoanRepository.save(melbaMortgage);
 			clientLoanRepository.save(melbaPersonal);

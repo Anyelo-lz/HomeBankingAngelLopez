@@ -18,8 +18,7 @@ public class Loan{
     @Column(name="clientLoans")
     private List<Integer> payments = new ArrayList<>();
 
-    @OneToMany(mappedBy = "loan", fetch = FetchType.EAGER)
-    private List<ClientLoan> clientLoans = new ArrayList<>();
+
     public Loan(String name, Double maxAmount, List<Integer> payments) {
         this.name = name;
         this.maxAmount = maxAmount;
