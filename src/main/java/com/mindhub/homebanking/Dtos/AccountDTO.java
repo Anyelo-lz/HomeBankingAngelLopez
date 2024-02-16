@@ -6,12 +6,15 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class AccountDTO {
-        private Long id;
-        private String number;
-        private LocalDate creationDate;
-        private Double balance;
-        private Set<TransactionDTO> transactions;
+    private Long id;
 
+    private String number;
+
+    private LocalDate creationDate;
+
+    private Double balance;
+
+    private Set<TransactionDTO> transactions;
 
     public AccountDTO(Account account) {
         this.id = account.getId();

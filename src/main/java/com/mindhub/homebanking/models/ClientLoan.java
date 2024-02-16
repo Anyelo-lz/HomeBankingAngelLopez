@@ -10,25 +10,44 @@ public class ClientLoan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne()
+    private int amount;
+
+    private int payments;
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
     private Client client;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "loan_id")
     private Loan loan;
 
-    private Double amount;
-    private Integer payments;
-
-    public ClientLoan(Client client, Loan loan, Double amount, Integer payments) {
-        this.client = client;
-        this.loan = loan;
+    public ClientLoan(int amount, int payments) {
         this.amount = amount;
         this.payments = payments;
     }
 
     public ClientLoan() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public int getPayments() {
+        return payments;
+    }
+
+    public void setPayments(int payments) {
+        this.payments = payments;
     }
 
     public Client getClient() {
@@ -46,25 +65,4 @@ public class ClientLoan {
     public void setLoan(Loan loan) {
         this.loan = loan;
     }
-
-    public Double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
-
-    public Integer getPayments() {
-        return payments;
-    }
-
-    public void setPayments(Integer payments) {
-        this.payments = payments;
-    }
-
-    public Long getId() {
-        return id;
-    }
 }
-

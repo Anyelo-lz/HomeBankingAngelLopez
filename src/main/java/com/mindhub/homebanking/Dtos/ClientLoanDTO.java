@@ -10,44 +10,40 @@ import jakarta.persistence.Id;
 public class ClientLoanDTO {
 
     private Long id;
+
+    private Long loanId;
+
     private String name;
-    private Double amount;
-    private Integer payments;
+
+    private int amount;
+
+    private int payments;
 
     public ClientLoanDTO(ClientLoan clientLoan) {
         this.id = clientLoan.getId();
+        this.loanId = clientLoan.getLoan().getId();
         this.name = clientLoan.getLoan().getName();
         this.amount = clientLoan.getAmount();
         this.payments = clientLoan.getPayments();
     }
 
+    public Long getId() {
+        return id;
+    }
 
+    public Long getLoanId() {
+        return loanId;
+    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Double getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
-
-    public Integer getPayments() {
+    public int getPayments() {
         return payments;
-    }
-
-    public void setPayments(Integer payments) {
-        this.payments = payments;
-    }
-
-    public Long getId() {
-        return id;
     }
 }

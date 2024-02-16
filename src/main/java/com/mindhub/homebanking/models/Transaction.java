@@ -8,12 +8,17 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private TransactionType type;
+
     private String detail;
+
     private LocalDateTime date;
+
     private Double amount;
+
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "account")
+    @JoinColumn(name = "account_id")
     private Account account;
 
     public Transaction(TransactionType type, String detail, LocalDateTime transactionTime, Double amount) {
